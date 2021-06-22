@@ -7,6 +7,9 @@
 - Switch to new database : `\c DB_NAME;` 
 - Run the attached script `psqlDB.sql` : `\i filepath/psqlDB.sql` 
 
+# Add GitHub Token
+- In `bp.crawler/src/main/java/crawler/HTTPUtility.java`, add valid GitHub tokens to `tokens` array in the following format: `token <TOKEN>`.
+
 # EXECUTION
 - Run `crawler.Main.main()` with arguments
 
