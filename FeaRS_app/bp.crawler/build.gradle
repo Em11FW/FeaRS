@@ -1,0 +1,42 @@
+plugins {
+    id 'java'
+}
+
+group 'valentina.ferrari'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 11
+
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile(group: 'org.json', name: 'json', version: '20190722')
+    compile(group: 'org.eclipse.jgit', name:'org.eclipse.jgit', version:'5.7.0.202003090808-r')
+//    compile group: 'org.slf4j', name:'slf4j-jdk14',version:'1.7.25'
+    compile(group: 'org.postgresql', name: 'postgresql', version: '42.2.8')
+}
+
+jar {
+    manifest {
+        attributes "Main-Class": "crawler.Main"
+    }
+}
+
+task fatJar(type: Jar) {
+    manifest {
+        attributes "Main-Class": "crawler.Main",
+                "Implementation-Title": "GitHub API Crawler",
+                "Implementation-Version": "1.0"
+    }
+    from (configurations.compile.collect { entry -> zipTree(entry) }) {
+        exclude 'META-INF/MANIFEST.MF'
+        exclude 'META-INF/*.SF'
+        exclude 'META-INF/*.DSA'
+        exclude 'META-INF/*.RSA'
+    }
+    with jar
+}

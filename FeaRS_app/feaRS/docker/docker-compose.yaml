@@ -1,0 +1,42 @@
+version: '3'
+
+services:
+    
+    fears-app:
+        build: ../
+        container_name: fears-app
+        env_file:
+            - fearsapp.env
+        depends_on:
+            - fears-db
+
+
+    fears-service:
+        image: fears-service:latest
+        container_name: fears-service
+        ports:
+            - "11180:8080"
+        depends_on:
+            - fears-db
+        environment:
+          - POSTGRES_USER=postgres
+          - POSTGRES_PASSWORD=db_pass
+          - POSTGRES_DB=fears_db
+          - DBSERVER_NAME=fears-db
+          - DBSERVER_PORT=5432
+
+    
+
+    fears-db:
+        image: postgres
+        container_name: fears-db
+        restart: always
+        environment:
+            POSTGRES_USER: postgres
+            POSTGRES_PASSWORD: db_pass
+            POSTGRES_DB: fears_db
+        ports:
+            - "46000:5432"
+        volumes:
+            - ./db/dbdata:/var/lib/postgresql/data        #this is created automatically after first init
+            - ./db_scripts:/docker-entrypoint-initdb.d/

@@ -1,0 +1,51 @@
+<idea-plugin url="https://fears.si.usi.ch/">
+  <id>ch.usi.si.seart.fears</id>
+  <name>FeaRS</name>
+  <version>1.4.1</version>
+  <vendor email="" url="http://seart.si.usi.ch/">REVEAL/SEART Research Group</vendor>
+
+  <description>
+    FeaRS is a novel retrieval-based approach that, given the current code a developer is writing in the IDE, can recommend the next full method (i.e., signature and method body) that the developer is likely to implement.
+    <![CDATA[ <bold>Project homepage</bold>: <a href="https://fears.si.usi.ch/">https://fears.si.usi.ch/</a> ]]>.
+  </description>
+
+  <change-notes></change-notes>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+  <idea-version since-build="173.0"/>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+       on how to target different products -->
+  <!-- uncomment to enable plugin in all products -->
+  <!--  <depends>com.intellij.modules.lang</depends>-->
+
+
+  <depends>com.intellij.modules.platform</depends>
+  <depends>com.intellij.modules.lang</depends>
+  <depends>com.intellij.java</depends>
+
+  <extensions defaultExtensionNs="com.intellij">
+    <!-- Add your extensions here -->
+  </extensions>
+
+  <actions>
+    <!-- Add your actions here -->
+    <action id="manualMethodSelectionAction" class="com.reaveal.methocomplete.manual.ManualMethodSelectionAction"
+            text="Methocomplete (Manual)"
+            description="Opens the window/UI which allows her to select a set of methods and ask for method completion suggestion.">
+      <add-to-group group-id="EditorPopupMenu1" anchor="first"/>
+    </action>
+      <action id="startMethodChangesMonitoringAction"
+              class="com.reaveal.methocomplete.auto.StartMethodChangesMonitoringAction"
+              text="Start Method Changes Monitoring" description="Start Method Changes Monitoring"
+              icon="/META-INF/play-button.svg">
+          <add-to-group group-id="NavBarToolBar" anchor="first"/>
+      </action>
+    <action id="stopMethodChangesMonitoringAction" class="com.reaveal.methocomplete.auto.StopMethodChangesMonitoringAction"
+            text="Stop Method Changes Monitoring Action" description="Stop Method Changes Monitoring Action"
+            icon="/META-INF/stop-button.svg">
+      <add-to-group group-id="NavBarToolBar" anchor="after" relative-to-action="startMethodChangesMonitoringAction"/>
+    </action>
+  </actions>
+
+</idea-plugin>

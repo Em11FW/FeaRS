@@ -1,0 +1,43 @@
+plugins {
+    id 'java'
+}
+
+group 'valentina.ferrari'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 11
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile group: 'org.eclipse.jgit', name:'org.eclipse.jgit', version:'5.7.0.202003090808-r'
+    compile group: 'org.postgresql', name: 'postgresql', version: '42.2.8'
+    compile group: 'org.jdom', name:'jdom', version:'2.0.2'
+    compile group: 'org.apache.commons', name: 'commons-io', version: '1.3.2'
+    compile group: 'au.com.bytecode', name:'opencsv', version:'2.4'
+    compile files('lib/asia.jar', 'lib/fengcai-recommender.jar', 'lib/jri/JRI.jar', 'lib/jri/JRIEngine.jar', 'lib/jri/REngine.jar')
+    files('lib/bin/*')
+}
+
+jar {
+    manifest {
+        attributes "Main-Class": "analyser.Main"
+    }
+}
+task fatJar(type: Jar) {
+    manifest {
+        attributes "Main-Class": "analyser.Main",
+                "Implementation-Title": "CodeAnalyaser",
+                "Implementation-Version": "1.0"
+    }
+    from (configurations.compile.collect { entry -> zipTree(entry) }) {
+        exclude 'META-INF/MANIFEST.MF'
+        exclude 'META-INF/*.SF'
+        exclude 'META-INF/*.DSA'
+        exclude 'META-INF/*.RSA'
+    }
+    with jar
+}
