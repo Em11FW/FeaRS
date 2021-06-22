@@ -9,8 +9,7 @@
   - Run the attached script `InitPSQLDB.sql` : `\i docker/db_scripts/InitPSQLDB.sql` 
 
 ## Setup (Others)
-- Copy attached directory `asia-resources` in path `/tmp/` ????
-  - ??OR?? to `/usr/local/app/resources/asia-resources` folder <-- correct one
+- Copy attached directory `asia-resources` in path `/usr/local/app/resources/asia-resources` folder
 - Install [srcML](https://www.srcml.org/#download) on the machine
 - Install [R.app](https://cran.r-project.org/bin/macosx/) on the machine
   - you can install in Mac like `brew install r`
