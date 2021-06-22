@@ -22,7 +22,6 @@ public class PsqlDB {
     public void connect(String url, String dbName, String user, String password){
         try{
             this.connection = DriverManager.getConnection(url + dbName, user, password);
-//            System.out.println("DB is connected");
         } catch (SQLException e){
             System.err.println("Cannot connect DB");
             e.printStackTrace();

@@ -7,7 +7,6 @@ public class DelayMaker {
 
     public static void threadWait(long time_ms){
         try{
-//            System.out.println("Waiting.."+time);
             Thread.sleep(time_ms);
         }catch(InterruptedException e){
             e.printStackTrace();

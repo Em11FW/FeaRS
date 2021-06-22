@@ -39,9 +39,6 @@ public class RInteractionHelper {
     }
 
     public String executeARule(int sensitivity_level) throws Exception{
-//        StringJoiner joiner = new StringJoiner("-");
-//        joiner.add(filename).add(Double.toString(support)).add(Double.toString(confidence)).add(Integer.toString(maxLength));
-//        joiner.add(filename).add(Integer.toString(sensitivity_level));
         String output_file_name = String.format("%s-%d.csv", rules_output_prefix, sensitivity_level);
 
         final String R_LOG_PATH = "Rlogfile.txt";

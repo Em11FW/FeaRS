@@ -80,35 +80,10 @@ public class VSM_old {
 	}
 	
 	
-	public static double computeTextualSimilarity(Map<String, Double> first, Map<String, Double> second){
-		
-		//HashMap<String, Double> firstDocument = (HashMap<String, Double>) applyTfIdf(first, idf);
-		//HashMap<String, Double> secondDocument = (HashMap<String, Double>) applyTfIdf(second, idf);
-		
+	public static double computeTextualSimilarity(Map<String, Double> first, Map<String, Double> second)
+	{
 		return VSM_old.vsm(first, second);
 	}
-	
-	/*public static double getAndroidSimilarity(Map<String, Double> first, Map<String, Double> second, Preprocessing_old preprocessing){
-		Set<String> both = Sets.newHashSet(first.keySet());
-        both.addAll(second.keySet());
-        
-        double overall = 0.0;
-        double inCommon = 0.0;
-        
-        for(String term: both){
-        	if(preprocessing.androidAPIs.contains(term) || preprocessing.androidClasses.contains(term) || preprocessing.androidConstants.contains(term)){
-        		overall++;
-        		if(first.keySet().contains(term) && second.keySet().contains(term))
-        			inCommon++;
-        	}
-        }
-        
-        if(overall > 0.0)
-        	return inCommon/overall;
-        else
-        	return -1.0;
-	}*/
-	
 	
 	public static Map<String, Double> computeIDF(Collection<Map<String, Double>> strings){
 		List<Set<String>> documents = new ArrayList<>();

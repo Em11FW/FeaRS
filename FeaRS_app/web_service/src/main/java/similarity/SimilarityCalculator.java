@@ -56,7 +56,6 @@ public class SimilarityCalculator implements Runnable{
                         boolean containsAndroidSpecificTerms1 = false;
                         for (String term : corpus.get(j).keySet()) {
                             if (preprocessing.androidAPIs.contains(term) || preprocessing.androidClasses.contains(term) || preprocessing.androidConstants.contains(term)) {
-                                //System.out.println(term);
                                 containsAndroidSpecificTerms1 = true;
                                 break;
                             }

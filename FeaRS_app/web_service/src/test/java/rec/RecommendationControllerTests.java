@@ -39,16 +39,11 @@ public class RecommendationControllerTests {
     @Test
     public void noParamRecommendationShouldReturnDefaultMessage() throws Exception {
 
-        //this.mockMvc.perform(get("/recommendation")).andDo(print()).andExpect(status().isOk())
-        //        .andExpect(jsonPath("$.content").value("Hello, World!"));
     }
 
     @Test
     public void paramRecommendationShouldReturnTailoredMessage() throws Exception {
 
-        //this.mockMvc.perform(get("/recommendation").param("name", "Spring Community"))
-        //        .andDo(print()).andExpect(status().isOk())
-        //        .andExpect(jsonPath("$.content").value("Hello, Spring Community!"));
     }
 
 }

@@ -32,9 +32,6 @@ public class ClusterFilesParser {
             long newValue = Long.parseLong(parts[1]);
             map.put(key, newValue);
         }
-//        for(int key : map.keySet()){
-//            System.out.println(key+" : "+ map.get(key));
-//        }
         return map;
     }
 
@@ -51,13 +48,6 @@ public class ClusterFilesParser {
             long clusterId = Long.parseLong(parts[1]);
             map.put(clusterId, methodsIdArray);
         }
-//        for(int key : map.keySet()){
-//            System.out.print(key);
-//            for(int id : map.get(key)){
-//                System.out.print(" : "+id);
-//            }
-//            System.out.println();
-//        }
         return map;
     }
 

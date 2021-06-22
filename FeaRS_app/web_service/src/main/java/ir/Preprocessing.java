@@ -146,7 +146,6 @@ public class Preprocessing {
         for(int var6 = 0; var6 < var5; ++var6) {
             String token = var4[var6];
             if (!token.isEmpty() && !token.equals(" ")) {
-                //token = token.toLowerCase();
                 if (!javaStopword.contains(token.toLowerCase())) {
                     if (!toReturn.containsKey(token)) {
                         toReturn.put(token, 1.0D);

@@ -45,8 +45,6 @@ public class RepositoriesCrawler {
             if(containsAndroidCode(fullName)){
                 PsqlDB.getInstance().insertRepository(fullName, defaultBranch);
                 System.out.format("\tRepo %s/%s: %s [ADDED]\n",(i+1),nAllRepos, fullName);
-                // System.out.println("\t\t\t**EMAD: Let's break when one Android project is found ;) **");
-                // break;
             }
         }
     }

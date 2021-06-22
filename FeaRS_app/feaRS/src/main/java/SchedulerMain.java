@@ -43,7 +43,7 @@ public class SchedulerMain {
              Trigger jobTrigger = TriggerBuilder.newTrigger()
                     .withIdentity("SimpleTrigger", "Pipeline")
                     .withSchedule(SimpleScheduleBuilder.simpleSchedule()
-                            .withIntervalInSeconds(10) // interval between runs // TODO: Emad: increase it
+                            .withIntervalInSeconds(10) // interval between runs
                             .repeatForever()
                             .withMisfireHandlingInstructionIgnoreMisfires()) // if a scheduled job misfires it is ignored and process will execute to next scheduled time
                     .build();

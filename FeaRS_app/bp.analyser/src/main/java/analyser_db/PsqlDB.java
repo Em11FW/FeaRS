@@ -175,7 +175,6 @@ public class PsqlDB {
     }
 
     public ImmutablePair<String, String> getMethodBody(long id){
-//        String sql = "SELECT body FROM methods WHERE id=?;";
         String sql = "SELECT methods.body AS body, commits.repository_full_name AS repo, commits.commit_sha AS sha\n" +
                 "FROM methods JOIN commits ON methods.commit_id = commits.id WHERE methods.id= ?;";
         createPrepStatement(sql);

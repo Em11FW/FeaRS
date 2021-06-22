@@ -18,7 +18,6 @@ public class Main {
         RepositoriesCrawler crawler = new RepositoriesCrawler();
 
         LocalDateTime lastRun = PsqlDB.getInstance().getLastRun();
-//        System.out.println("Crawler: LAST_RUN was " + lastRun);
         LocalDateTime today = LocalDateTime.of(LocalDate.now(), LocalTime.MIDNIGHT);
         long hours = ChronoUnit.HOURS.between(lastRun, today);
 
