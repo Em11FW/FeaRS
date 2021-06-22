@@ -6,7 +6,7 @@ This project involves two sub-projects:
 
 * the web service which can be set up to communicate between the plugin and knowledge base
 
-For convenient, we provide step-by-step instructions to run the project via Docker.
+We provide step-by-step instructions to run the project via Docker.
 
 
 ## How to setup and run Docker services
@@ -20,7 +20,7 @@ We provide three services:
 ## How to setup and run all services
 ### 1/2
 1. `cd web_service`
-2. Build the project
+2. Build the project: `./gradlew build`
    - Verify `build/libs/gs-rest-service-0.1.0.jar` exists.
 3. Create `fears-service` image: `docker build -t fears-service:latest .`
    - The tailing `.` refers to `Dockerfile` file
